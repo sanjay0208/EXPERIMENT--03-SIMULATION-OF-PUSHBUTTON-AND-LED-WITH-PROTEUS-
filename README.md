@@ -165,6 +165,8 @@ int main(void)
 	  		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
 	  	  }
 
+programed by : M SANJAY
+Register NO :212222110038
 ~~~
 
 
