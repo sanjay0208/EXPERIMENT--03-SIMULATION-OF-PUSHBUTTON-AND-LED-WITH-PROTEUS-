@@ -72,11 +72,105 @@ We are now at the last part of step by step guide on how to simulate STM32 proje
 
 ## STM 32 CUBE PROGRAM :
 
+~~~
+#include "main.h"
+#include "stdio.h"
+#include "stdbool.h"
+bool pb;
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
 
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  /* USER CODE BEGIN 2 */
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+	  pb=HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_1);
+	  	  if(pb==0)
+	  	  {
+	  		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+	  		  HAL_Delay(100);
+	  		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+	  		  HAL_Delay(100);
+
+
+	  	  }
+	  	  else
+	  	  {
+	  		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+	  	  }
+
+~~~
 
 
 ## Output screen shots of proteus  :
 
+![exp3](https://user-images.githubusercontent.com/119406959/235201712-f9d9cefb-d077-4f5a-89d6-067c9129955c.jpg)
 
 
 
@@ -84,7 +178,8 @@ We are now at the last part of step by step guide on how to simulate STM32 proje
  
  
  
- 
+ [exp3.pdf](https://github.com/sanjay0208/EXPERIMENT--03-SIMULATION-OF-PUSHBUTTON-AND-LED-WITH-PROTEUS-/files/11355490/exp3.pdf)
+
 ## Result :
 Interfacing a digital output and digital input  with ARM microcontroller are simulated in proteus and the results are verified.
 
